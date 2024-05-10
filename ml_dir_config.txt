@@ -1,9 +1,9 @@
 #.BASHRC
 
-export OLLAMA_MODELS="/scratch/drn2/software/ollama_models"
-Environment="OLLAMA_MODELS=/scratch/drn2/software/ollama_models"
+export OLLAMA_MODELS="/scratch/software/ollama_models"
+Environment="OLLAMA_MODELS=/scratch/software/ollama_models"
 
-export HF_DATASETS_CACHE="/scratch/drn2/software/hf-cache"
-export HF_HOME="/scratch/drn2/software/huggingface"
+export HF_DATASETS_CACHE="/scratch/software/hf-cache"
+export HF_HOME="/scratch/software/huggingface"
 
 export HF_TOKEN="HF_TOKEN_REDACTED"
