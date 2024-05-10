@@ -1,1 +1,1 @@
-commands for data manipulation, archiving, etc
+basic bash commands and uses
