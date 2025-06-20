@@ -2,10 +2,12 @@
 
 > Essential UNIX/Linux command-line tools for file management, text processing, system administration, and automation.
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Tools](https://img.shields.io/badge/tools-48-green.svg)](.)
-[![Shell](https://img.shields.io/badge/shell-bash%20%7C%20zsh-yellow.svg)](.)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20BSD-lightgrey.svg)](.)
+[![License](https://img.shields.io/github/license/olympus-terminal/unix-utilities)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/olympus-terminal/unix-utilities?style=social)](https://github.com/olympus-terminal/unix-utilities/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/olympus-terminal/unix-utilities)](https://github.com/olympus-terminal/unix-utilities/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/olympus-terminal/unix-utilities)](https://github.com/olympus-terminal/unix-utilities/commits/main)
+[![Tools](https://img.shields.io/badge/tools-48-green.svg)](https://github.com/olympus-terminal/unix-utilities)
+[![Shell](https://img.shields.io/badge/shell-bash%20%7C%20zsh-yellow.svg)](https://github.com/olympus-terminal/unix-utilities)
 
 ## 🛠️ Overview
 
