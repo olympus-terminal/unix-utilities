@@ -11,15 +11,7 @@
 
 ## 🛠️ Overview
 
-A curated collection of battle-tested Unix utilities that enhance productivity and streamline common tasks. These tools fill the gaps between standard Unix commands and complex operations, providing elegant solutions for everyday command-line challenges.
-
-### Why This Collection?
-
-- **Fill the Gaps**: Tools for tasks that require multiple commands or complex pipelines
-- **Cross-Platform**: Works on Linux, macOS, and BSD systems
-- **No Dependencies**: Most tools use only standard Unix utilities
-- **Well-Tested**: Used in production environments
-- **Time-Savers**: Automate repetitive tasks efficiently
+Random useful unix utilities
 
 ## 📁 Repository Structure
 
