@@ -1,0 +1,60 @@
+### This is a friendly reminder to use -exec more!
+
+Basic syntax:
+  find . -name "*.mp3" -exec cp {} out/ \;
+  - {} = the found file
+  - \; = run command once per file
+
+  Batch mode (faster):
+  find . -name "*.mp3" -exec cp {} out/ +
+  - + = pass multiple files at once (like xargs)
+
+  Multiple commands:
+  find . -name "*.mp3" -exec echo "Processing:" {} \; -exec cp {} out/ \;
+
+  With shell features (needs sh -c):
+  find . -name "*.mp3" -exec sh -c 'echo "Copying $(basename "$1")" && cp "$1" out/' _ {} \;
+
+  Check before action:
+  find . -name "*.tmp" -exec ls -l {} \; -ok rm {} \;
+  - -ok = prompts for confirmation
+
+  Useful real examples:
+  # Rename all .txt to .bak
+  find . -name "*.txt" -exec mv {} {}.bak \;
+
+  # Convert images
+  find . -name "*.png" -exec convert {} {}.jpg \;
+
+  # Delete empty directories
+  find . -type d -empty -exec rmdir {} \;
+
+  Basic syntax:
+  find . -name "*.mp3" -exec cp {} out/ \;
+  - {} = the found file
+  - \; = run command once per file
+
+  Batch mode (faster):
+  find . -name "*.mp3" -exec cp {} out/ +
+  - + = pass multiple files at once (like xargs)
+
+  Multiple commands:
+  find . -name "*.mp3" -exec echo "Processing:" {} \; -exec cp {} out/ \;
+
+  With shell features (needs sh -c):
+  find . -name "*.mp3" -exec sh -c 'echo "Copying $(basename "$1")" && cp "$1" out/' _ {} \;
+
+  Check before action:
+  find . -name "*.tmp" -exec ls -l {} \; -ok rm {} \;
+  - -ok = prompts for confirmation
+
+  Useful real examples:
+  # Rename all .txt to .bak
+  find . -name "*.txt" -exec mv {} {}.bak \;
+
+  # Convert images
+  find . -name "*.png" -exec convert {} {}.jpg \;
+
+  # Delete empty directories
+  find . -type d -empty -exec rmdir {} \;
+
