@@ -329,7 +329,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Acknowledgments
 
 - Unix philosophy: "Do one thing and do it well"
-- The amazing Unix/Linux community
+- The Unix/Linux community
 - Contributors and users who provided feedback
 
 ## Contact
