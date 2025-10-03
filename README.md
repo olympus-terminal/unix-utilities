@@ -1,6 +1,6 @@
 # Unix Utilities
 
-> Essential UNIX/Linux command-line tools for file management, text processing, system administration, and automation.
+Essential UNIX/Linux command-line tools for file management, text processing, system administration, and automation.
 
 [![License](https://img.shields.io/github/license/olympus-terminal/unix-utilities)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/olympus-terminal/unix-utilities?style=social)](https://github.com/olympus-terminal/unix-utilities/stargazers)
@@ -9,11 +9,11 @@
 [![Tools](https://img.shields.io/badge/tools-48-green.svg)](https://github.com/olympus-terminal/unix-utilities)
 [![Shell](https://img.shields.io/badge/shell-bash%20%7C%20zsh-yellow.svg)](https://github.com/olympus-terminal/unix-utilities)
 
-## 🛠️ Overview
+## Overview
 
 Random useful unix utilities
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 unix-utilities/
@@ -24,7 +24,7 @@ unix-utilities/
 └── compression/        # Archive and compression utilities
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone the repository
@@ -38,7 +38,7 @@ find . -type f \( -name "*.sh" -o -name "*.py" -o -name "*.pl" \) -exec chmod +x
 export PATH="$PATH:$HOME/unix-utilities"
 ```
 
-## 🔧 Tool Highlights
+## Tool Highlights
 
 ### File Management (`file-management/`)
 
@@ -175,7 +175,7 @@ python scan_filter.py --pattern "error|warning" logs/
 ./force_unzip.sh damaged_archive.zip output_dir/
 ```
 
-## 📊 Real-World Use Cases
+## Real-World Use Cases
 
 ### 1. Bulk File Renaming Project
 ```bash
@@ -216,7 +216,7 @@ paste old_names.txt new_names.txt
 ./system-admin/CatchAndSlot.sh ./data_processing_pipeline.sh
 ```
 
-## 🎯 Performance Tips
+## Performance Tips
 
 ### Parallel Processing
 Many tools support parallel execution:
@@ -237,7 +237,7 @@ for chunk in chunk_*; do
 done
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 ```bash
@@ -258,7 +258,7 @@ alias bigsearch='$UNIX_UTILS_HOME/search-tools/search_in_files-parallel.sh'
 alias smartsort='$UNIX_UTILS_HOME/text-processing/sort_by_col-1.sh'
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -276,7 +276,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 - Follow existing naming conventions
 - Test on Linux and macOS
 
-## 📚 Documentation
+## Documentation
 
 Each tool includes inline documentation. View with:
 ```bash
@@ -287,7 +287,7 @@ Each tool includes inline documentation. View with:
 head -20 tool-name.sh
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -314,7 +314,7 @@ ls -la script-name.sh  # Look for #!/bin/bash or #!/bin/zsh
 bash script-name.sh
 ```
 
-## 📈 Performance Benchmarks
+## Performance Benchmarks
 
 | Operation | Standard Unix | Our Tool | Speedup |
 |-----------|--------------|----------|---------|
@@ -322,17 +322,17 @@ bash script-name.sh
 | Rename 10k files | Manual (hours) | `rename_from_list.sh` (30s) | 100x+ |
 | Find large dirs | `du -h` (3m) | `report_offending_dirs.sh` (45s) | 4x |
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🌟 Acknowledgments
+## Acknowledgments
 
 - Unix philosophy: "Do one thing and do it well"
 - The amazing Unix/Linux community
 - Contributors and users who provided feedback
 
-## 📮 Contact
+## Contact
 
 - Issues: [GitHub Issues](https://github.com/olympus-terminal/unix-utilities/issues)
 - Discussions: [GitHub Discussions](https://github.com/olympus-terminal/unix-utilities/discussions)
