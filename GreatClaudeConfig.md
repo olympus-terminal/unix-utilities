@@ -69,4 +69,5 @@ When asked to explain analysis results or figures:
 
 ## visualizations
 
-REFER TO FIGURE_PROTOCOL.MD for visualization guides and always adhere to those rules unless explicitly stated otherwise by user
+1. REFER TO FIGURE_PROTOCOL.MD for visualization rules i.e., creating figures, graphics, etc.
+2. View any generated graphics to ensure adherence to FIGURE_PROTOCOL.md, especially regarding text overlapping with other figure elements
