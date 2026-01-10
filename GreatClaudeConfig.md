@@ -78,6 +78,8 @@ def test_no_fake_data():
     with pytest.raises(RuntimeError):
         np.linspace(0, 1, 10)
 
+ ```
+
 Zero Tolerance:
 
 Any detected use of placeholder or synthetic data in analysis triggers a critical policy violation and must be escalated for review.
@@ -90,6 +92,8 @@ Any detected use of placeholder or synthetic data in analysis triggers a critica
 - When creating a new file or program, add a timestamp to the filename (format: YYYYMMDD_HHMMSS) - make certain that new output files from developed programs will not override each other
 - Do not run programs on synthetic or subsampled data unless explicitly requested
 - ALWAYS make sure new results files can be traced to the program that generated them
+- **NEVER write "expected results" or predictions about what analysis outcomes should be** - this creates confirmation bias and confuses future agents who may mistake predictions for actual findings
+ 
 
 ## Memory-Efficient Coding
 
