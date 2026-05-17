@@ -1,0 +1,11 @@
+for f in *.fa; 
+
+do 
+
+sed '1~7d' $f >> "$f".every7th.downsampled.out;
+
+sed '1~5d' $f >> "$f".every5th.downsampled.out;
+
+sed '1~3d' $f >> "$f".every3rd.downsampled.out;
+
+done
