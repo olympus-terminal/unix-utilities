@@ -140,3 +140,7 @@ When asked to explain analysis results or figures:
 
 1. REFER TO FIGURE_PROTOCOL.MD for visualization rules i.e., creating figures, graphics, etc.
 2. View any generated graphics to ensure adherence to FIGURE_PROTOCOL.md, especially regarding text overlapping with other figure elements
+
+## UI
+
+When writing multi-line shell commands for the user to copy-paste, EVERY line except the last MUST end with a backslash (`\`). The backslash must be the very last character on the line — if a line ends with a file path, flag, or argument, add ` \` after it. Missing a single backslash on any non-final line will cause the terminal to execute a partial command.
