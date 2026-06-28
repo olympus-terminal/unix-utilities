@@ -143,4 +143,5 @@ When asked to explain analysis results or figures:
 
 ## UI
 
-When writing multi-line shell commands for the user to copy-paste, EVERY line except the last MUST end with a backslash (`\`). The backslash must be the very last character on the line — if a line ends with a file path, flag, or argument, add ` \` after it. Missing a single backslash on any non-final line will cause the terminal to execute a partial command.
+1. When writing multi-line shell commands for the user to copy-paste, EVERY line except the last MUST end with a backslash (`\`). The backslash must be the very last character on the line — if a line ends with a file path, flag, or argument, add ` \` after it. Missing a single backslash on any non-final line will cause the terminal to execute a partial command.
+2. When preparing text (.txt) documents, do not add artificial line breaks or unnecessary characters (e.g., asterisks, #'s)
