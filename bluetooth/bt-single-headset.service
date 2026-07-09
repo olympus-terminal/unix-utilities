@@ -1,0 +1,11 @@
+[Unit]
+Description=Allow only one Bluetooth audio device at a time
+After=bluetooth.target
+
+[Service]
+ExecStart=/usr/bin/python3 %h/.local/bin/bt-single-headset
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

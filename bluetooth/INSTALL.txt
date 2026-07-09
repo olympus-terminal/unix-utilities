@@ -1,0 +1,23 @@
+bt-single-headset
+=================
+Prevents multiple Bluetooth audio devices from connecting simultaneously.
+When one headset is connected, any new headset that tries to connect gets
+immediately disconnected.
+
+Requires: python3-dbus, python3-gi (both are standard on Ubuntu/Debian).
+
+Install
+-------
+  cp bt-single-headset ~/.local/bin/
+  chmod +x ~/.local/bin/bt-single-headset
+  cp bt-single-headset.service ~/.config/systemd/user/
+  systemctl --user daemon-reload
+  systemctl --user enable --now bt-single-headset
+
+Usage
+-----
+  systemctl --user status bt-single-headset   # check status
+  journalctl --user -u bt-single-headset -f   # watch live log
+  systemctl --user stop bt-single-headset     # pause the guard
+  systemctl --user start bt-single-headset    # resume
+  systemctl --user disable bt-single-headset  # stop auto-start

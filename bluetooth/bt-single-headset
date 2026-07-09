@@ -1,0 +1,135 @@
+#!/usr/bin/python3
+"""
+bt-single-headset: Allow only one Bluetooth audio device at a time.
+
+Monitors D-Bus for new Bluetooth connections. If an audio device connects
+while another audio device is already connected, the new one is immediately
+disconnected.
+"""
+import signal
+
+import dbus
+from dbus.mainloop.glib import DBusGMainLoop
+from gi.repository import GLib
+
+AUDIO_UUIDS = {
+    "0000110a-0000-1000-8000-00805f9b34fb",  # AudioSource
+    "0000110b-0000-1000-8000-00805f9b34fb",  # AudioSink
+    "0000110e-0000-1000-8000-00805f9b34fb",  # A/V RemoteControl
+    "0000111e-0000-1000-8000-00805f9b34fb",  # Handsfree
+    "0000111f-0000-1000-8000-00805f9b34fb",  # HandsfreeAudioGateway
+    "00001108-0000-1000-8000-00805f9b34fb",  # Headset AG
+    "00001131-0000-1000-8000-00805f9b34fb",  # Headset HS
+}
+
+bus = None
+
+
+def log(msg):
+    print(f"[bt-single-headset] {msg}", flush=True)
+
+
+def is_audio_device(obj_path):
+    try:
+        obj = bus.get_object("org.bluez", obj_path)
+        props = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
+        uuids = props.Get("org.bluez.Device1", "UUIDs")
+        return bool(set(str(u) for u in uuids) & AUDIO_UUIDS)
+    except dbus.DBusException:
+        return False
+
+
+def get_connected_audio_devices():
+    try:
+        manager = dbus.Interface(
+            bus.get_object("org.bluez", "/"),
+            "org.freedesktop.DBus.ObjectManager",
+        )
+        objects = manager.GetManagedObjects()
+    except dbus.DBusException:
+        return []
+
+    connected = []
+    for path, interfaces in objects.items():
+        dev = interfaces.get("org.bluez.Device1")
+        if dev is None:
+            continue
+        if not dev.get("Connected", False):
+            continue
+        uuids = set(str(u) for u in dev.get("UUIDs", []))
+        if uuids & AUDIO_UUIDS:
+            name = str(dev.get("Alias", dev.get("Address", path)))
+            connected.append((str(path), name))
+    return connected
+
+
+def disconnect_device(obj_path):
+    try:
+        dev = dbus.Interface(
+            bus.get_object("org.bluez", obj_path), "org.bluez.Device1"
+        )
+        dev.Disconnect()
+        return False
+    except dbus.DBusException as e:
+        log(f"  Failed to disconnect {obj_path}: {e}")
+        return False
+
+
+def on_properties_changed(interface, changed, invalidated, path=None):
+    if interface != "org.bluez.Device1":
+        return
+    if "Connected" not in changed:
+        return
+    if not changed["Connected"]:
+        return
+
+    if not is_audio_device(path):
+        return
+
+    try:
+        obj = bus.get_object("org.bluez", path)
+        props = dbus.Interface(obj, "org.freedesktop.DBus.Properties")
+        name = str(props.Get("org.bluez.Device1", "Alias"))
+    except dbus.DBusException:
+        name = path
+
+    connected = get_connected_audio_devices()
+    others = [(p, n) for p, n in connected if p != path]
+
+    if others:
+        log(f"Already connected to: {others[0][1]}")
+        log(f"Disconnecting new device: {name}")
+        GLib.timeout_add(500, disconnect_device, path)
+    else:
+        log(f"Audio device connected: {name}")
+
+
+def main():
+    global bus
+
+    DBusGMainLoop(set_as_default=True)
+    bus = dbus.SystemBus()
+
+    bus.add_signal_receiver(
+        on_properties_changed,
+        dbus_interface="org.freedesktop.DBus.Properties",
+        signal_name="PropertiesChanged",
+        path_keyword="path",
+    )
+
+    connected = get_connected_audio_devices()
+    if connected:
+        log(f"Already connected to: {', '.join(n for _, n in connected)}")
+    else:
+        log("No audio devices connected. Watching...")
+
+    loop = GLib.MainLoop()
+    signal.signal(signal.SIGTERM, lambda *_: loop.quit())
+    signal.signal(signal.SIGINT, lambda *_: loop.quit())
+
+    log("Service started — only one audio device allowed at a time.")
+    loop.run()
+
+
+if __name__ == "__main__":
+    main()
