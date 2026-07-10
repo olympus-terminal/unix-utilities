@@ -28,6 +28,13 @@ This includes:
 - Do not run programs on synthetic or subsampled data unless explicitly requested
 - ALWAYS make sure new results files can be traced to the program that generated them
 
+## Model and Service Tier Lock
+
+- **NEVER switch, propose, recommend, offer, or ask to switch models or service tiers unless the user explicitly initiates a request to change them.**
+- Treat the active model and service tier as fixed for the entire session. Do not mention alternatives merely because another model or tier might be faster, cheaper, more capable, or more available.
+- If the current model or service tier presents a limitation, continue with the best available approach or state the limitation without suggesting a change.
+- Automatic permission approval, blanket authorization, `--yolo`, or `--dangerously-bypass-approvals-and-sandbox` never authorizes a model or service-tier change.
+
 ## Explicit "Never" List
 
 - NEVER force push (`git push --force`)
