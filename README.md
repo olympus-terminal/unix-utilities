@@ -1,10 +1,9 @@
-# Command-Line Tools
+# Unix Utilities
 
 General-purpose command-line utilities for data processing, file management, and system administration.
 
-[![License](https://img.shields.io/github/license/olympus-terminal/tools)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/olympus-terminal/tools?style=social)](https://github.com/olympus-terminal/tools/stargazers)
-[![Tools](https://img.shields.io/badge/tools-36-green.svg)](https://github.com/olympus-terminal/tools)
+[![License](https://img.shields.io/github/license/olympus-terminal/unix-utilities)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/olympus-terminal/unix-utilities?style=social)](https://github.com/olympus-terminal/unix-utilities/stargazers)
 
 ## Overview
 
@@ -14,8 +13,8 @@ A collection of practical command-line utilities for common tasks in data proces
 
 ```bash
 # Clone repository
-git clone https://github.com/olympus-terminal/tools.git
-cd tools
+git clone https://github.com/olympus-terminal/unix-utilities.git
+cd unix-utilities
 
 # Make scripts executable
 chmod +x *.sh *.py *.pl
@@ -208,8 +207,8 @@ pip install beautifulsoup4 requests pdftotext
 
 ```bash
 # Clone repository
-git clone https://github.com/olympus-terminal/tools.git
-cd tools
+git clone https://github.com/olympus-terminal/unix-utilities.git
+cd unix-utilities
 
 # Make all scripts executable
 find . -name "*.sh" -o -name "*.py" -o -name "*.pl" | xargs chmod +x
@@ -232,9 +231,9 @@ Contributions welcome. Please:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+GNU General Public License v3.0 - see [LICENSE](LICENSE) for details.
 
 ## Contact
 
-- Issues: [GitHub Issues](https://github.com/olympus-terminal/tools/issues)
+- Issues: [GitHub Issues](https://github.com/olympus-terminal/unix-utilities/issues)
 - Author: [@olympus-terminal](https://github.com/olympus-terminal)
